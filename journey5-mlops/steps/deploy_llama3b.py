@@ -3,7 +3,7 @@ from sagemaker.jumpstart.model import JumpStartModel
 from steps.utils import endpoint_exists
 
 
-def deploy_llama7b(model):
+def deploy_llama3b(model):
 
     model_id = model["model_id"]
     model_version = model["model_version"]

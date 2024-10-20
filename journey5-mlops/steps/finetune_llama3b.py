@@ -2,7 +2,7 @@ from steps.utils import endpoint_exists
 from sagemaker.jumpstart.estimator import JumpStartEstimator
 
 
-def finetune_llama7b(model):
+def finetune_llama3b(model):
 
     model_id = model["model_id"]
     model_version = model["model_version"]

@@ -38,6 +38,7 @@ def evaluation(model, preprocess_step_ret, deploy_step_ret):
     # Create a JumpStartModelRunner that will be used by FMEval library to perform the call to the model 
     # and the evaluation of each entry of the evaluation dataset
     endpoint_name = deploy_step_ret["model_endpoint"]
+
     js_model_runner = JumpStartModelRunner(
         endpoint_name=endpoint_name,
         model_id=model_id,
@@ -48,12 +49,14 @@ def evaluation(model, preprocess_step_ret, deploy_step_ret):
     # Configure and launch FactualKnowledge evaluation algorithm
     eval_output_all = []
     eval_algo = FactualKnowledge(FactualKnowledgeConfig("<OR>"))
+
     eval_output = eval_algo.evaluate(
         model=js_model_runner,
         dataset_config=config,
-        prompt_template="$feature",
-        save=True,
+        prompt_template="$model_input",
+        save=True
     )
+
     eval_output_all.append(eval_output)
 
     # Save results to S3

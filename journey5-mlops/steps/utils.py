@@ -20,4 +20,4 @@ def endpoint_exists(endpoint_name):
     return endpoint_exist
 
 def create_training_job_name(model_id):
-    return f"{model_id}-{datetime.now().strftime('%Y-%m-%d-%H-%M-%S-%f')[:-3]}"
+    return f"{model_id}-{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')[:-3]}"
